@@ -94,5 +94,47 @@ While the Entra Admin Center provides a high-level view, we can perform a deep-d
 ### Summary of Results
 The Entra ID portal correctly reflects the state of both devices. This level of visibility allows IT Administrators to manage security compliance, BitLocker keys, and MDM enrollment from a single dashboard.
 
+## Lab 4: Plan and Implement Groups in Microsoft Entra ID
+
+### Objective
+To organize devices into logical security groups using both **Assigned (Static)** and **Dynamic** membership types to facilitate scalable management in Microsoft Intune.
+
+### Implementation Steps
+
+1. **Accessing Group Management:** Navigated to the Groups section in the Microsoft Entra admin center to view existing M365 and Security groups.
+![All Groups Overview] <img width="1880" height="888" alt="Group1" src="https://github.com/user-attachments/assets/11ec7357-a96d-46b5-8a07-956b7cd2c041" />
+
+
+2. **Creating a New Security Group:** Initiated the creation of a new group titled "Windows Device Group."
+![New Group Initiation] <img width="1181" height="873" alt="Group2" src="https://github.com/user-attachments/assets/1bc1e4c2-1307-4dd7-8dd8-727462343473" />
+
+
+3. **Defining Membership Type:** * First, I explored **Assigned** membership for manual device addition.
+   * Then, I selected **Dynamic Device** to implement automation rules.
+![Membership Selection] <img width="1185" height="898" alt="Group3" src="https://github.com/user-attachments/assets/d789df91-5869-47ff-8267-263c461c9144" />
+
+
+4. **Configuring Dynamic Rules:** I implemented a dynamic membership rule to automatically include devices based on their Operating System type.
+   * **Rule Syntax:** `(device.deviceOSType -eq "Windows")`
+![Dynamic Rule Syntax]<img width="1510" height="433" alt="Group5" src="https://github.com/user-attachments/assets/1020e884-51ab-4d82-b843-66ade3d29069" />
+)
+
+5. **Finalizing Group Creation:** Verified the group settings, including the description "All Windows Devices are included on this Group."
+![Group Confirmation](<img width="1183" height="827" alt="Group4" src="https://github.com/user-attachments/assets/c48ff4e8-c8ba-4894-a0c9-8d70040740bc" />
+
+
+6. **Verification of Membership:** Confirmed that the "Windows Device Group" successfully populated with the lab devices (`DESKTOP-PM4PCDO` and `Windows11`).
+![Group Members Verification] <img width="1062" height="513" alt="Group6" src="https://github.com/user-attachments/assets/c7d7f107-f123-4911-92a2-c413c1fdf9ca" />
+
+
+---
+
+### **Key Takeaways**
+* **Automation:** Dynamic groups eliminate the need for manual updates as new devices are onboarded.
+* **Scalability:** By grouping by `deviceOSType`, I can ensure all Windows machines receive the same security baseline automatically.
+* **Security:** Using Security groups instead of M365 groups ensures the group is optimized for Intune policy deployment.
+
+---
+*Created by Akash Chetry*
 ---
 *Created by Akash Chetry*
